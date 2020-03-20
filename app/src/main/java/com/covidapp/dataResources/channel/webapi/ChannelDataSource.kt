@@ -1,18 +1,10 @@
 package com.prathik.schoolpro.dataResources.channel.webapi
 
-import android.view.View
-import com.prathik.schoolpro.dataResources.channel.database.model.ChannelsRealmModel
-import com.prathik.schoolpro.interfaces.OnHttpResponse
-import com.prathik.schoolpro.webapi.WebApi
-import com.prathik.schoolpro.webapi.coroutine.CoroutineBase
-import com.prathik.schoolpro.webapi.model.UserModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.lang.Exception
-import java.util.*
+import com.covidapp.interfaces.OnHttpResponse
+import com.covidapp.webapi.model.UserModel
+import com.covidapp.webapi.model.WebApi
 
- class ChannelDataSource(reponseListener: OnHttpResponse) {
+class ChannelDataSource(reponseListener: OnHttpResponse) {
 
      var thisResponseListener:OnHttpResponse?=null
 
@@ -30,8 +22,8 @@ import java.util.*
 
                    val obj =objectResponse as UserModel
 
-                   println("||   RESxxxxxxx : Name: ${obj.data[1].email}")
-                   println("||   RESxxxxxxx : size: ${obj.data.size}")
+                 /*  println("||   RESxxxxxxx : Name: ${obj.data[1].email}")
+                   println("||   RESxxxxxxx : size: ${obj.data.size}")*/
 
                    thisResponseListener?.onResponse(objectResponse)
                }

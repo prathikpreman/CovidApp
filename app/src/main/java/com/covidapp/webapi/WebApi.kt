@@ -1,16 +1,10 @@
-package com.prathik.schoolpro.webapi
+package com.covidapp.webapi.model
 
-import android.view.View
-import com.google.gson.Gson
-import com.prathik.schoolpro.httpType.HttpType
-import com.prathik.schoolpro.interfaces.OnHttpResponse
-import com.prathik.schoolpro.webapi.coroutine.CoroutineBase
-import com.prathik.schoolpro.webapi.model.UserModel
-import kotlinx.android.synthetic.main.activity_main.*
+import com.covidapp.interfaces.OnHttpResponse
+import com.covidapp.webapi.coroutine.CoroutineBase
+import com.covidapp.webapi.httpType.HttpType
+import com.covidapp.webapi.model.UserModel
 import kotlinx.coroutines.*
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.URLEncoder
 
 
 class WebApi(reponseListener: OnHttpResponse) {

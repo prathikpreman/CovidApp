@@ -1,4 +1,4 @@
-package com.prathik.schoolpro.webapi.coroutine
+package com.covidapp.webapi.coroutine
 
 import kotlinx.coroutines.*
 

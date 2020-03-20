@@ -1,4 +1,4 @@
-package com.prathik.schoolpro.dataResources.channel.database.model
+package com.covidapp.dataResources.channel.database.model
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey

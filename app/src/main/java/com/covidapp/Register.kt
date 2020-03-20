@@ -3,9 +3,8 @@ package com.covidapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.prathik.schoolpro.interfaces.OnHttpResponse
-import com.prathik.schoolpro.webapi.WebApi
-import com.prathik.schoolpro.webapi.model.UserModel
+import com.covidapp.interfaces.OnHttpResponse
+import com.covidapp.webapi.model.WebApi
 import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {
@@ -30,7 +29,7 @@ class Register : AppCompatActivity() {
         WebApi(object : OnHttpResponse {
             override fun <T> onResponse(objectResponse: T) {
 
-                val obj =objectResponse as UserModel
+               // val obj =objectResponse as UserModel
 
 
 

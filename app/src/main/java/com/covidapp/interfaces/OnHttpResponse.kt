@@ -1,4 +1,4 @@
-package com.prathik.schoolpro.interfaces
+package com.covidapp.interfaces
 
 interface OnHttpResponse {
 

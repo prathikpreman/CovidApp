@@ -1,8 +1,9 @@
-package com.prathik.schoolpro.httpType
+package com.covidapp.webapi.httpType
 
+import com.covidapp.interfaces.OnHttpResponse
+import com.covidapp.webapi.coroutine.CoroutineBase
 import com.google.gson.Gson
-import com.prathik.schoolpro.interfaces.OnHttpResponse
-import com.prathik.schoolpro.webapi.coroutine.CoroutineBase
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
