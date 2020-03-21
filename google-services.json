@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "7820983184",
+    "firebase_url": "https://savekerala-79d2a.firebaseio.com",
+    "project_id": "savekerala-79d2a",
+    "storage_bucket": "savekerala-79d2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7820983184:android:f1f61dae5dfa025b401115",
+        "android_client_info": {
+          "package_name": "com.covidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7820983184-tgssdclohjuc414noh9n2t3uhcrsjkri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.covidapp",
+            "certificate_hash": "5346f2d8a23f235ff167f0816931a2c331b6cf82"
+          }
+        },
+        {
+          "client_id": "7820983184-vjs5bi41su2r3envp9tb4sbce9t8kp3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE7LyA_JZcCzaHWjvKduCRtS5FL0lsH6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7820983184-vbefivgufptobcd57mvb6gfrmg98tl0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ package com.covidapp
 
 import android.app.PendingIntent.getActivity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -11,6 +12,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.util.Log
+import com.covidapp.interfaces.OnHttpResponse
+import com.covidapp.webapi.model.WebApi
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
@@ -19,8 +23,23 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.functions.FirebaseFunctions
+
+
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,GoogleMap.OnMarkerClickListener {
+
+
+    companion object {
+
+        fun getLaunchIntent(from: Context) = Intent(from, Register::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+
+        }
+
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+    }
 
     override fun onLocationChanged(location: Location?) {
     }
@@ -51,6 +70,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,Go
          .findFragmentById(R.id.map) as SupportMapFragment
      mapFragment.getMapAsync(this)
      fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+     getUser()
 
  }
 
@@ -98,9 +119,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,Go
     }
 
 
-    companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
-    }
+
 
 
     protected fun createMarker(latitude:Double, longitude:Double, title:String, iconResID:Int):Marker {
@@ -145,6 +164,40 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,Go
     }
 
     data class MarkerData(val latitude: Double,val longitude: Double,val title: String,val iconResID: Int)
+
+    private fun getUserInfo(){
+        Log.d("apicall3534","value : insideGetUserInfo")
+        WebApi(object : OnHttpResponse {
+            override fun <T> onResponse(objectResponse: T) {
+
+                // val obj =objectResponse as UserModel
+
+                Log.d("response546","value: ${objectResponse.toString()}")
+
+
+            }
+
+        }).getAllDelayedChannels()
+    }
+
+
+
+    private fun getUser(){
+
+        var data = HashMap<String,String>()
+
+        FirebaseFunctions.getInstance() // Optional region: .getInstance("europe-west1")
+            .getHttpsCallable("http://us-central1-savekerala-79d2a.cloudfunctions.net/api/users/+919037513781")
+            .call(data)
+            .addOnFailureListener {
+                Log.wtf("FF", it)
+                Log.d("response546","value failure: ${it.message.toString()}")
+            }
+            .addOnSuccessListener {
+
+                Log.d("response546","value success: ${it.data.toString()}")
+            }
+    }
 }
 
 

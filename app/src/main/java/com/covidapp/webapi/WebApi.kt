@@ -14,7 +14,7 @@ class WebApi(reponseListener: OnHttpResponse) {
 
 
     enum class WebURL(val webUrl:String){
-        GetChannelInfo("https://reqres.in/api/users")
+        GetChannelInfo("http://us-central1-savekerala-79d2a.cloudfunctions.net/api/users/+919037513781")
     }
 
 
@@ -45,7 +45,7 @@ class WebApi(reponseListener: OnHttpResponse) {
         CoroutineBase.instance.launch(Dispatchers.IO) {
             var params:  HashMap<String, String>?
             params= HashMap()
-            params["delay"] = "5"
+         //   params["delay"] = "5"
 
             HttpType(object : OnHttpResponse {
                 override fun <T> onResponse(objectResponse: T) {
